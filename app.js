@@ -1,5 +1,7 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
+const lineWidth = document.getElementById('line-width');
+const color = document.getElementById('color');
 
 canvas.width = 800;
 canvas.height = 800;
@@ -68,27 +70,71 @@ canvas.height = 800;
 /**
  * draw colorful lines
  */
-ctx.lineWidth = 2;
+// ctx.lineWidth = 2;
 
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'darkblue',
-  'purple',
-];
+// const colors = [
+//   'red',
+//   'orange',
+//   'yellow',
+//   'green',
+//   'blue',
+//   'darkblue',
+//   'purple',
+// ];
 
-function onClick(event) {
+// function onClick(event) {
+//   ctx.beginPath();
+//   ctx.moveTo(0, 0);
+
+//   const color = colors[Math.floor(Math.random() * colors.length)];
+//   ctx.strokeStyle = color;
+//   ctx.lineTo(event.offsetX, event.offsetY);
+//   ctx.stroke();
+// }
+
+// // canvas.addEventListener('click', onClick);
+// canvas.addEventListener('mousemove', onClick);
+
+/**
+ * draw a line when mouse moves
+ */
+ctx.lineWidth = lineWidth.value;
+let isPainting = false;
+
+function onMove(event) {
+  if (isPainting) {
+    ctx.lineTo(event.offsetX, event.offsetY);
+    ctx.stroke();
+    return;
+  }
   ctx.beginPath();
-  ctx.moveTo(0, 0);
-
-  const color = colors[Math.floor(Math.random() * colors.length)];
-  ctx.strokeStyle = color;
-  ctx.lineTo(event.offsetX, event.offsetY);
-  ctx.stroke();
+  ctx.moveTo(event.offsetX, event.offsetY);
 }
 
-// canvas.addEventListener('click', onClick);
-canvas.addEventListener('mousemove', onClick);
+function startPainting() {
+  isPainting = true;
+}
+
+function endPainting() {
+  isPainting = false;
+}
+
+//브러쉬 크기 변경
+function onLineWidthChange(event) {
+  ctx.lineWidth = event.target.value;
+}
+
+//브러쉬 컬러 변경
+function onColorChange(event) {
+  ctx.strokeStyle = event.target.value;
+  ctx.fillStyle = event.target.value;
+}
+
+canvas.addEventListener('mousemove', onMove);
+canvas.addEventListener('mousedown', startPainting);
+canvas.addEventListener('mouseup', endPainting);
+// 버그 수정: 영역 밖으로 벗어날때 브러쉬 오작동
+canvas.addEventListener('mouseleave', endPainting);
+
+lineWidth.addEventListener('change', onLineWidthChange);
+color.addEventListener('change', onColorChange);
