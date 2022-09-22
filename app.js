@@ -3,10 +3,10 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = 800;
 canvas.height = 800;
+
 /**
  * rect
  */
-
 // ctx.rect(50, 50, 100, 100);
 // ctx.rect(150, 150, 100, 100);
 // ctx.rect(250, 250, 100, 100);
@@ -52,15 +52,43 @@ canvas.height = 800;
 /**
  * person
  */
-ctx.fillRect(200, 200, 15, 100);
-ctx.fillRect(400, 200, 15, 100);
-ctx.fillRect(280, 200, 60, 200);
+// ctx.fillRect(400, 200, 15, 100);
+// ctx.fillRect(200, 200, 15, 100);
+// ctx.fillRect(280, 200, 60, 200);
 
-ctx.arc(310, 120, 50, 0, 2 * Math.PI);
-ctx.fill();
+// ctx.arc(310, 120, 50, 0, 2 * Math.PI);
+// ctx.fill();
 
-ctx.beginPath();
-ctx.arc(290, 100, 5, 0, 2 * Math.PI);
-ctx.arc(330, 100, 5, 0, 2 * Math.PI);
-ctx.fillStyle = 'red';
-ctx.fill();
+// ctx.beginPath();
+// ctx.arc(290, 100, 5, 0, 2 * Math.PI);
+// ctx.arc(330, 100, 5, 0, 2 * Math.PI);
+// ctx.fillStyle = 'red';
+// ctx.fill();
+
+/**
+ * draw colorful lines
+ */
+ctx.lineWidth = 2;
+
+const colors = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'darkblue',
+  'purple',
+];
+
+function onClick(event) {
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  ctx.strokeStyle = color;
+  ctx.lineTo(event.offsetX, event.offsetY);
+  ctx.stroke();
+}
+
+// canvas.addEventListener('click', onClick);
+canvas.addEventListener('mousemove', onClick);
