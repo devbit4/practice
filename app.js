@@ -34,18 +34,33 @@ canvas.height = 800;
 /**
  * house
  */
+// ctx.fillRect(200, 200, 20, 200);
+// ctx.fillRect(400, 200, 20, 200);
+// ctx.lineWidth = 3;
+// ctx.strokeStyle = 'yellow';
+// ctx.strokeRect(290, 300, 40, 100);
+// ctx.fillRect(200, 200, 200, 20);
 
-ctx.fillRect(200, 200, 20, 200);
-ctx.fillRect(400, 200, 20, 200);
-ctx.lineWidth = 3;
-ctx.strokeStyle = 'yellow';
-ctx.strokeRect(290, 300, 40, 100);
-ctx.fillRect(200, 200, 200, 20);
+// ctx.beginPath();
+// ctx.lineWidth = 3;
+// ctx.fillStyle = 'red';
+// ctx.moveTo(200, 200);
+// ctx.lineTo(325, 100);
+// ctx.lineTo(420, 200);
+// ctx.fill();
+
+/**
+ * person
+ */
+ctx.fillRect(200, 200, 15, 100);
+ctx.fillRect(400, 200, 15, 100);
+ctx.fillRect(280, 200, 60, 200);
+
+ctx.arc(310, 120, 50, 0, 2 * Math.PI);
+ctx.fill();
 
 ctx.beginPath();
-ctx.lineWidth = 3;
+ctx.arc(290, 100, 5, 0, 2 * Math.PI);
+ctx.arc(330, 100, 5, 0, 2 * Math.PI);
 ctx.fillStyle = 'red';
-ctx.moveTo(200, 200);
-ctx.lineTo(325, 100);
-ctx.lineTo(420, 200);
 ctx.fill();
