@@ -1,4 +1,5 @@
 const body = document.querySelector('body');
+const h1 = document.querySelector('h1');
 
 function handleResize() {
   body.className = '';
