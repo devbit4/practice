@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge - Casino</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <h1>Random Number Game</h1>
+
+    <h2>
+      Generate a number between 0 and
+      <input type="number" min="0" class="limit-num" />
+    </h2>
+
+    <h3>
+      Chose the number <input type="number" class="chosen-num" />
+      <button>Play!</button>
+    </h3>
+
+    <div class="result hidden">
+      <h4>
+        You chose: <span class="selected-num"></span>, the machine chose:<span
+          class="machine-num"
+        ></span>
+      </h4>
+      <h5 class="result-message"></h5>
+    </div> -->
+
+    <h1>Random Number Game</h1>
+    <div>
+      <h3 class="js-title">
+        Generate a number between 0 and <input id="maxNumber" type="number" />
+      </h3>
+    </div>
+    <form id="js-guess">
+      <label>Guess the number:</label>
+      <input type="number" max="200" min="5" />
+      <button>Play!</button>
+    </form>
+    <div id="js-result">
+      <span></span>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
