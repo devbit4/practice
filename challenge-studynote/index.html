@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyNote</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="title">스터디 노트</h1>
+
+    <div id="weather"><span>날짜</span> <span>위치</span></div>
+
+    <main id="board">
+      <!-- 사용자 정보 -->
+      <section id="board-info">
+        <p class="info__time">오늘 날짜는 <span>00:00:00</span> 입니다.</p>
+        <p class="info__due-date">
+          다음 시험까지 남은 시간은 <span>00:00:00</span>입니다.
+        </p>
+        <p class="info__quote">
+          오늘의 명언:
+          <span></span>
+          <span></span>
+        </p>
+      </section>
+
+      <!-- 투두리스트 -->
+      <section id="board-todo">
+        <div class="todo__form">
+          <input type="text" />
+          <button>확인</button>
+        </div>
+
+        <ul class="todo__list">
+          <!-- <li class="todo__item">국어 100page <span>삭제</span></li>
+          <li class="todo__item">수학 50page <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">국어 100page <span>삭제</span></li>
+          <li class="todo__item">수학 50page <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+          <li class="todo__item">영어 단어장 <span>삭제</span></li>
+
+          <li class="todo__item">영어 단어장 <span>삭제</span></li> -->
+        </ul>
+      </section>
+
+      <div class="board-bottom"></div>
+      <div class="board-eraser"><div class="board-eraser-line"></div></div>
+    </main>
+
+    <script src="js/background.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/dueDate.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+  </body>
+</html>

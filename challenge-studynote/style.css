@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  background-color: #fed68f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Jua', sans-serif;
+}
+
+#title {
+  font-size: 38px;
+  margin-bottom: 30px;
+}
+
+#weather {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#board {
+  width: 70%;
+  height: 60vh;
+  border-radius: 60px;
+  border: 10px solid #8d582e;
+  display: flex;
+  position: relative;
+  z-index: 0;
+  box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+#board section {
+  width: 50%;
+  padding: 30px;
+  color: white;
+}
+
+#board-todo {
+  border-left: 1px solid #fff;
+}
+
+#board-info {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#board-info p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.board-bottom {
+  width: 110%;
+  height: 6vh;
+  background-color: #8d582e;
+  border-radius: 60px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.board-eraser {
+  width: 15%;
+  height: 6vh;
+  background-color: red;
+  bottom: 20px;
+  left: 20px;
+  position: absolute;
+  z-index: 2;
+}
+
+.board-eraser-line {
+  width: 6px;
+  height: 6vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 30px;
+}
+
+.todo__form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.todo__form input {
+  width: 80%;
+  height: 25px;
+  padding: 0 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+.todo__form button {
+  width: 20%;
+  height: 30px;
+  background-color: #fed68f;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  border: none;
+}
+
+.todo__form button:hover {
+  transform: scale(1.1);
+}
+
+.todo__list {
+  height: 80%;
+  padding: 10px 20px;
+  overflow: scroll;
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.todo__item button {
+  color: red;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
