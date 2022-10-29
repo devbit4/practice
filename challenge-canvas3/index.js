@@ -7,6 +7,7 @@ const modeBtn = document.querySelector('#mode-btn');
 const eraseBtn = document.querySelector('#eraser-btn');
 const destroyBtn = document.querySelector('#destroy-btn');
 const fileInput = document.querySelector('#file');
+const textInput = document.querySelector('#text');
 
 const ctx = canvas.getContext('2d');
 
@@ -14,6 +15,8 @@ canvas.width = 600;
 canvas.height = 600;
 
 ctx.lineWidth = 5;
+ctx.lineCap = 'round';
+
 let isPainting = false;
 let isFilling = false;
 let isBgFilling = false;
@@ -84,6 +87,9 @@ function onCanvasClick() {
   }
 }
 
+/**
+ * 지우개
+ */
 function onEraserClick() {
   ctx.strokeStyle = 'white';
   isBgFilling = false;
@@ -95,9 +101,11 @@ function onDestroyClick() {
   ctx.fillRect(0, 0, 600, 600);
 }
 
+/**
+ * 배경 이미지 변경
+ */
 function onFileChange(event) {
   const file = event.target.files[0];
-  console.log(file);
   const url = URL.createObjectURL(file);
   const image = new Image();
   image.src = url;
@@ -105,6 +113,20 @@ function onFileChange(event) {
     ctx.drawImage(image, 0, 0, 600, 600);
     fileInput.value = null;
   };
+}
+
+/**
+ * 텍스트 입력
+ */
+function onDoubleClick(event) {
+  const text = textInput.value;
+  if (text !== '') {
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.font = "32px 'Press Start 2P'";
+    ctx.fillText(text, event.offsetX, event.offsetY);
+    ctx.save();
+  }
 }
 
 canvas.addEventListener('mousemove', onMove);
@@ -132,3 +154,6 @@ destroyBtn.addEventListener('click', onDestroyClick);
 
 //파일 업로드
 fileInput.addEventListener('change', onFileChange);
+
+//텍스트
+canvas.addEventListener('dblclick', onDoubleClick);
