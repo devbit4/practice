@@ -8,6 +8,7 @@ const eraseBtn = document.querySelector('#eraser-btn');
 const destroyBtn = document.querySelector('#destroy-btn');
 const fileInput = document.querySelector('#file');
 const textInput = document.querySelector('#text');
+const saveBtn = document.querySelector('#save');
 
 const ctx = canvas.getContext('2d');
 
@@ -123,10 +124,21 @@ function onDoubleClick(event) {
   if (text !== '') {
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "32px 'Press Start 2P'";
+    ctx.font = '32px sans-serif';
     ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.save();
   }
+}
+
+/**
+ * 메모장 저장
+ */
+function onSaveClick() {
+  const url = canvas.toDataURL();
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '파일이름';
+  a.click();
 }
 
 canvas.addEventListener('mousemove', onMove);
@@ -157,3 +169,6 @@ fileInput.addEventListener('change', onFileChange);
 
 //텍스트
 canvas.addEventListener('dblclick', onDoubleClick);
+
+//저장
+saveBtn.addEventListener('click', onSaveClick);
