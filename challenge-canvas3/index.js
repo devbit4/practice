@@ -6,6 +6,7 @@ const strokeBtn = document.querySelector('#stroke-btn');
 const modeBtn = document.querySelector('#mode-btn');
 const eraseBtn = document.querySelector('#eraser-btn');
 const destroyBtn = document.querySelector('#destroy-btn');
+const fileInput = document.querySelector('#file');
 
 const ctx = canvas.getContext('2d');
 
@@ -94,6 +95,18 @@ function onDestroyClick() {
   ctx.fillRect(0, 0, 600, 600);
 }
 
+function onFileChange(event) {
+  const file = event.target.files[0];
+  console.log(file);
+  const url = URL.createObjectURL(file);
+  const image = new Image();
+  image.src = url;
+  image.onload = function () {
+    ctx.drawImage(image, 0, 0, 600, 600);
+    fileInput.value = null;
+  };
+}
+
 canvas.addEventListener('mousemove', onMove);
 canvas.addEventListener('mousedown', startPainting);
 canvas.addEventListener('mouseup', cancelPainting);
@@ -116,3 +129,6 @@ canvas.addEventListener('click', onCanvasClick);
 // 지우개
 eraseBtn.addEventListener('click', onEraserClick);
 destroyBtn.addEventListener('click', onDestroyClick);
+
+//파일 업로드
+fileInput.addEventListener('change', onFileChange);
